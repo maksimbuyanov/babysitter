@@ -1,0 +1,49 @@
+/*var(--tg-theme-bg-color)*/
+/*var(--tg-theme-text-color)*/
+/*var(--tg-theme-hint-color)*/
+/*var(--tg-theme-link-color)*/
+/*var(--tg-theme-button-color)*/
+/*var(--tg-theme-button-text-color)*/
+
+/*--tg-color-scheme: dark; */
+/*--tg-theme-bg-color: #282828; */
+/*--tg-theme-secondary-bg-color: #1c1c1c; */
+/*--tg-theme-text-color: #ffffff; */
+/*--tg-theme-button-color: #007aff; */
+/*--tg-theme-link-color: #007aff; */
+/*--tg-theme-hint-color: #ffffff; */
+/*--tg-theme-button-text-color: #ffffff; */
+/*--tg-viewport-height: 100vh; */
+/*--tg-viewport-stable-height: 100vh;*/
+
+
+body {
+  background-color: var(--tg-theme-bg-color);
+}
+
+.container {
+  max-width: 350px;
+  margin: 0 auto;
+}
+.container h3 {
+  margin-bottom: 50px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formField label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.block {
+  background-color: var(--tg-theme-secondary-bg-color);
+}
+
+.text {
+  color: var(--tg-theme-text-color);
+}

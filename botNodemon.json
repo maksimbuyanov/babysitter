@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "bot"
+  ],
+  "ext": ".js",
+  "exec": "node ./bot"
+}

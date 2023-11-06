@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "standard",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [ "prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "off",
+
+    "import/prefer-default-export": "off",
+    // не дает импортировать дев зависимости в файлы
+    "import/no-extraneous-dependencies": 0,
+    "no-underscore-dangle": "off",
+    "object-curly-spacing": 0,
+    // пробелы в фигурных скобках
+    "linebreak-style": "off"
+  }
+}
