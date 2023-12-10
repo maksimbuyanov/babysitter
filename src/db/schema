@@ -1,0 +1,59 @@
+# https://dbdiagram.io/d
+Ref: temperatures.children_id > children.id
+Ref: hums.children_id > children.id
+Ref: sleeps.children_id > children.id
+
+
+Table hums {
+  id integer [primary key]
+  datetime timestamp
+  value integer
+  children_id integer
+}
+
+
+Table temperatures {
+  id integer [primary key]
+  datetime timestamp
+  value integer
+  children_id integer
+}
+
+Table children {
+  id integer [primary key]
+  name varchar
+  parent_id integer
+  settings_file_name varchar
+}
+
+
+Table parents {
+  id integer [primary key]
+  chat_id varchar [note: 'Link to telegram chat, telegram id']
+  name varchar [note: 'Name or other info']
+}
+
+Table sleeps_depricated {
+  id integer [primary key]
+  start_sleep timestamp
+  end_sleep timestamp
+  children_id integer
+}
+
+
+
+Table sleeps {
+  id integer [primary key]
+  date timestamp
+  action varchar [note: 'sleep or wake']
+  children_id integer
+}
+
+Table children_parents {
+  id integer [primary key]
+  parent_id integer
+  children_id integer
+}
+
+Ref: children_parents.parent_id <> parents.id
+Ref: children_parents.children_id <> children.id
