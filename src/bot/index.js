@@ -46,7 +46,6 @@ await bot.launch()
 //   console.log(ctx.message.web_app_data)
 //   return ctx.reply('Данные приняты', Markup.keyboard([]))
 // })
-
 // if (msg?.web_app_data?.data) {
 //   try {
 //     const data = JSON.parse(msg?.web_app_data?.data)
@@ -62,7 +61,6 @@ await bot.launch()
 //     console.log(e)
 //   }
 // }
-
 // bot.on(message('text'), async ctx => {
 //   try {
 //     ctx.reply('asd')
@@ -73,14 +71,12 @@ await bot.launch()
 //     })
 //   }
 // })
-
 // bot.command('clear', ctx => {
 //   return ctx.reply(
 //     'open webapp',
 //     Markup.inlineKeyboard([Markup.button.webApp('Opennnnnn', url)])
 //   )
 // })
-
 //
 // bot.command('bottom', async ctx => {
 //   await ctx.reply('Заполните форму', {
@@ -104,7 +100,6 @@ await bot.launch()
 //   // Explicit usage
 //   await ctx.telegram.answerInlineQuery(ctx.webAppData.id, result)
 // })
-
 //
 // export const commandForNew = async ctx => {
 //   const a = await Controller.getLastSleepInfo()
