@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noImplicitAny": true,
+    "moduleResolution": "Node16",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": "./src" /* Specify the root folder within your source files. */,
+    "outDir": "./dist" /* Specify an output folder for all emitted files. */,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "strictNullChecks": true,
+    "strict": true,
+    "sourceMap": true,
+    "module": "Node16",
+    "target": "ES2018",
+    "lib": [
+      "es2021",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["./node_modules/**/*.*", "node_modules/**/*.*", "node_modules"],
+  "include": [
+    "./src/**/*.ts", "./global.d.ts", "src",
+    "./src/**/*.html",
+    "./src/**/*.css",
+    "./src/**/*.js",
+    "./src/**/*.json",
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "ESNext"
+    },
+    "include": [
+      "./**/*.json"
+    ]
+  }
+}
