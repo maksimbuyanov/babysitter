@@ -7,5 +7,7 @@ declare var process: {
     DB_BASE: string
     DB_LOGIN: string
     DB_PASS: string
+    BOT_UI_STATIC: string
+    SERVER_ADDRESS: string
   }
 }

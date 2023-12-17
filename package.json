@@ -12,7 +12,8 @@
     "seq:migrate:up": "npx sequelize-cli db:migrate",
     "seq:migrate:undo": "npx sequelize-cli db:migrate:undo",
     "seq:migrate:generate": "npx sequelize-cli migration:generate --name",
-    "copyStatic" : "copyfiles -u 1 src/**/*.{html,css} dist"
+    "copyStatic" : "copyfiles -u 1 src/**/*.{html,css} dist",
+    "start:bot" : "node dist/bot/index.js"
   },
   "dependencies": {
     "axios": "^1.6.0",

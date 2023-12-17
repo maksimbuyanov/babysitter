@@ -1,0 +1,22 @@
+{
+  "name": "home-babysitter-bot",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev:server": "nodemon --config ./serverNodemon.json",
+    "dev:bot": "nodemon --config ./botNodemon.json",
+    "seq:migrate:up": "npx sequelize-cli db:migrate",
+    "seq:migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "seq:migrate:generate": "npx sequelize-cli migration:generate --name",
+    "copyStatic" : "copyfiles -u 1 src/**/*.{html,css} dist"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "telegraf": "^4.15.0"
+  }
+}
