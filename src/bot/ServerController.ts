@@ -1,7 +1,7 @@
+import type { AxiosInstance } from 'axios'
 import { api } from './api.js'
 
 export class ServerController {
-  /** @type {import('axios').Axios} */
   api
   url = {
     getParameters: 'getParameters',
@@ -13,12 +13,12 @@ export class ServerController {
 
   hourInMs = 3600000
 
-  /** @param {import('axios').Axios} apiInstance */
-  constructor(apiInstance) {
+  constructor(apiInstance: AxiosInstance) {
     this.api = apiInstance
   }
 
-  async updateWifi(wifiInfo) {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  async updateWifi(wifiInfo: any) {
     try {
       const { data } = await this.api.put(this.url.updateWifi, wifiInfo)
       if (data.success) {
@@ -31,6 +31,7 @@ export class ServerController {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   async getLastSleepInfo() {
     try {
       const { data } = await this.api.get(this.url.getLastSleepInfo)
@@ -39,7 +40,7 @@ export class ServerController {
       const lastSleep = new Date(data.lastSleep)
 
       if (!data.lastWake) {
-        const sleepNow = ((now - lastSleep) / this.hourInMs).toFixed(1)
+        const sleepNow = ((+now - +lastSleep) / this.hourInMs).toFixed(1)
 
         return `Спит уже ${sleepNow} ч`
       }
@@ -47,11 +48,13 @@ export class ServerController {
       const messages = []
       const lastWake = new Date(data.lastWake)
 
-      const wakeDuration = ((now - lastWake) / this.hourInMs).toFixed(1)
+      const wakeDuration = ((+now - +lastWake) / this.hourInMs).toFixed(1)
 
       messages.push(`Время бодрствования: ${wakeDuration} ч`)
 
-      const sleepDuration = ((lastWake - lastSleep) / this.hourInMs).toFixed(1)
+      const sleepDuration = ((+lastWake - +lastSleep) / this.hourInMs).toFixed(
+        1
+      )
 
       messages.push(`Продолжительность последнего сна: ${sleepDuration} ч`)
 
@@ -61,7 +64,8 @@ export class ServerController {
     }
   }
 
-  async changeHumidity(newHumidity) {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  async changeHumidity(newHumidity: any) {
     try {
       const { data } = await this.api.put(this.url.changeHumidity, {
         newHumidity,
@@ -76,7 +80,8 @@ export class ServerController {
     }
   }
 
-  async changeTemp(newTemp) {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  async changeTemp(newTemp: any) {
     try {
       const { data } = await this.api.put(this.url.changeTemp, {
         newTemp,
@@ -91,6 +96,7 @@ export class ServerController {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   async getParameters() {
     try {
       const { data } = await this.api.get(this.url.getParameters)
@@ -101,7 +107,8 @@ export class ServerController {
     }
   }
 
-  errorHandle(e) {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  errorHandle(e: any) {
     return { message: e.message, title: 'Ошибка при обращении к серверу' }
   }
 }

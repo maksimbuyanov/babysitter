@@ -9,7 +9,7 @@ export const ENDPOINTS = {
   config: 'config',
 }
 
-export const url = process.env.BOT_UI_STATIC
+export const url = process.env.BOT_UI_STATIC ?? ''
 
 export const STATIC = {
   configWifiForm: url + 'wifi',

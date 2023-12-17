@@ -4,8 +4,8 @@ import { url } from './api.js'
 import Controller from './ServerController.js'
 import { bot } from './bot.js'
 
-bot.command('register', ctx => {
-  return ctx.reply(
+bot.command('register', async ctx => {
+  return await ctx.reply(
     'Все возможности',
     Markup.keyboard([
       Markup.button.webApp('Обновить wifi', url, false),
@@ -19,13 +19,22 @@ bot.on(message('text'), async ctx => {
     case 'sleepInfo': {
       try {
         const message = await Controller.getLastSleepInfo()
-        if (message.title) throw new Error('Не удалось получить данные')
-        return ctx.reply(`${message}`)
+        if (typeof message !== 'string') {
+          throw new Error('Не удалось получить данные')
+        }
+
+        return await ctx.reply(message)
       } catch (e) {
-        return ctx.reply(e.message)
+        if (e instanceof Error) {
+          return await ctx.reply(e.message)
+        }
+        break
       }
     }
-    default:
+
+    default: {
+      return await ctx.reply('необработанная команда')
+    }
   }
 })
 
@@ -33,14 +42,18 @@ bot.on(message('web_app_data'), async ctx => {
   try {
     const data = JSON.parse(ctx.message.web_app_data.data)
     const message = await Controller.updateWifi(data)
-    if (message.title) throw new Error('Не удалось получить данные')
-    return ctx.reply(`Данные приняты`)
+    if (typeof message !== 'string')
+      throw new Error('Не удалось получить данные')
+
+    return await ctx.reply(`Данные приняты`)
   } catch (e) {
-    return ctx.reply(e.message)
+    if (e instanceof Error) {
+      return await ctx.reply(e.message)
+    }
   }
 })
 
-await bot.launch()
+void bot.launch()
 
 // bot.on('message', async ctx => {
 //   console.log(ctx.message.web_app_data)
