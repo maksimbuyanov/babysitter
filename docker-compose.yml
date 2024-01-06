@@ -1,12 +1,13 @@
 version: "3"
 
 services:
-#  backend:
-#    container_name: babysitter_backend_c
-#    image: babysitter_backend
-#    env_file:
-#      - .env
-#    restart: unless-stopped
+  backend:
+    container_name: babysitter_backend_c
+    image: babysitter_backend
+    restart: unless-stopped
+    ports:
+      - 3005:3000
+
 
   bot:
     container_name: babysitter_bot_c
