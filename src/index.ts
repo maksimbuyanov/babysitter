@@ -13,7 +13,7 @@ app.get('/wifi', (req, res) => {
 const port = process.env.SERVER_PORT ?? 3000
 
 app
-  .route('/config')
+  .route('/api/config')
   .get((req, res, next) => {
     res.json({
       sendPeriod: 10000,
@@ -31,7 +31,7 @@ app
   })
 
 app
-  .route('/wifiSettings')
+  .route('/api/wifiSettings')
   .get((req, res, next) => {
     // res.json(wifi.read())
     res.json({
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/getLastSleepInfo', (req, res) => {
+app.get('/api/getLastSleepInfo', (req, res) => {
   const flag = new Date().getMinutes() % 2
   if (flag) {
     res.json({
