@@ -3,5 +3,5 @@
     "src"
   ],
   "ext": ".ts, .js",
-  "exec": "npm build && npm run copyStatic && node ./dist/index.js"
+  "exec": "npm run build && npm run copyStatic && node ./dist/index.js"
 }
