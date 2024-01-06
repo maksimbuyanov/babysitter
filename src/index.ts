@@ -15,7 +15,11 @@ const port = process.env.SERVER_PORT ?? 3000
 app
   .route('/config')
   .get((req, res, next) => {
-    // res.json(settings.read())
+    res.json({
+      sendPeriod: 10000,
+      tempUpdate: 4000,
+      humpUpdate: 5000,
+    })
   })
   .put((req, res, next) => {
     try {
@@ -30,6 +34,10 @@ app
   .route('/wifiSettings')
   .get((req, res, next) => {
     // res.json(wifi.read())
+    res.json({
+      name: 'GaryWiFi',
+      password: '11121311',
+    })
   })
   .put((req, res, next) => {
     try {
